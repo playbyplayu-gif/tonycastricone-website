@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kudos — Tony Castricone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; --purple: #b4a0ff; --purple-deep: #7c5ce0; --gold: #ffd666; --bg: #0a0514; --bg2: #0d0820; --text: #fff; --text-dim: rgba(255,255,255,0.5); --text-faint: rgba(255,255,255,0.25); --card-bg: rgba(255,255,255,0.03); --card-border: rgba(180,160,255,0.08); }
+body { background: var(--bg); color: var(--text); font-family: 'Cormorant Garamond', Georgia, serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+::selection { background: rgba(180,160,255,0.3); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(180,160,255,0.15); border-radius: 3px; }
+a { color: inherit; text-decoration: none; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* PAGE HEADER */
+.page-header { padding: 5.5rem clamp(1rem,4vw,3rem) 1.5rem; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; inset: 0; background: url('images/kudos-basketball.jpg') center 40% / cover no-repeat; opacity: 0.12; filter: grayscale(25%); }
+.page-header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,5,20,0.7), rgba(10,5,20,0.5), rgba(10,5,20,0.8)); }
+.page-header > * { position: relative; z-index: 1; }
+.page-header-inner { max-width: 1200px; margin: 0 auto; }
+.page-label { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.5rem; }
+.page-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2.5rem, 6vw, 4rem); text-transform: uppercase; line-height: 1; }
+.page-rule { width: 55px; height: 3px; background: linear-gradient(90deg, var(--purple), var(--gold)); margin-top: 1rem; border-radius: 2px; }
+.page-subtitle { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; color: var(--text-dim); margin-top: 1rem; max-width: 550px; }
+
+/* KUDOS GRID */
+.kudos-section { max-width: 1200px; margin: 0 auto; padding: 3rem clamp(1rem,4vw,3rem) 5rem; position: relative; }
+.kudos-big-quote { position: absolute; top: -1rem; left: 4%; font-family: Georgia, serif; font-size: 16rem; color: rgba(180,160,255,0.025); line-height: 1; pointer-events: none; }
+.kudos-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .kudos-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .kudos-grid { grid-template-columns: 1fr; } }
+.kudos-col { display: flex; flex-direction: column; gap: 1.5rem; }
+.kudos-card { break-inside: avoid; margin-bottom: 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 1.5rem; transition: border-color 0.3s, transform 0.3s; display: block; }
+.kudos-card:hover { border-color: rgba(180,160,255,0.18); transform: translateY(-2px); }
+.kudos-card blockquote { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.65; font-style: italic; }
+.kudos-author { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-top: 1rem; }
+.kudos-hint { font-family: 'Oswald', sans-serif; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); margin-top: 0.4rem; opacity: 0; transition: opacity 0.3s; }
+.kudos-card:hover .kudos-hint { opacity: 1; }
+
+/* FOOTER */
+.footer { padding: 3rem clamp(1rem,4vw,3rem) 2rem; background: rgba(8,4,15,0.95); text-align: center; }
+.footer-name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+.footer-sub { font-size: 0.72rem; color: rgba(255,255,255,0.1); margin-top: 0.4rem; }
+</style>
+</head>
+<body>
+
+<div id="nav"></div>
+<script src="nav.js"></script>
+
+<header class="page-header">
+  <div class="page-header-inner" style="animation: fadeUp 0.8s ease both;">
+    <div class="page-label">Career</div>
+    <h1 class="page-title">Kudos</h1>
+    <div class="page-rule"></div>
+    <p class="page-subtitle">What fans, peers, and the media are saying about the Voice of the Huskies.</p>
+  </div>
+</header>
+
+<div class="kudos-section">
+  <div class="kudos-big-quote">&ldquo;</div>
+  <div class="kudos-grid" id="kudosGrid"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-name">Tony Castricone</div>
+  <div class="footer-sub">Voice of the Washington Huskies &middot; PlayByPlayU &middot; &copy; 2026</div>
+</footer>
+
+<script>
+var col1 = [
+  { text:"As Washington began its fourth quarter at No. 11 Oregon State ahead by a sliver at 22-17, Huskies play-by-play man Tony Castricone lent the moment a beautiful framing: 15 minutes to a chance at 11-0, 15 minutes to reserve a berth in the Pac-12 championship game, 15 minutes to preserve ironclad national-title ambition.", author:"Washington Post", url:"https://www.washingtonpost.com/sports/2023/11/19/florida-state-washington-college-football/" },
+  { text:"I strongly urge all of you Dawgs fans: When you aren\u2019t AT the games, find a way \u2014 FIND A FREAKING WAY \u2014 to mute the TV and listen to Castricone and Hamilton call Huskies basketball games. It was great with Rondeau and Hamilton and it\u2019s already great with Tony and Jason.", author:"Jason A. Churchill", url:"https://twitter.com/ProspectInsider/status/960034077813309440" },
+  { text:"You were literally replacing a UW broadcasting legend and have done it quite well with the professionalism, personality, passion and humility you pour into every broadcast. THANK YOU!", author:"@Hoyt4UW", url:"https://twitter.com/Hoyt4UW/status/1608947547447623680" },
+  { text:"Bob Rondeau is amazing and I thought no way UW could hire anyone as close to him. Somehow they did with Tony. Great voice, knowledgeable, and enthusiastic at the right moments. He\u2019ll be calling many great moments in basketball and football over the years.", author:"@HuskiesFan19", url:"https://twitter.com/HuskiesFan19/status/960165791457947655" },
+  { text:"You can never replace Rondeau but @Castricone is rapidly winning a permanent place in my purple heart.", author:"@Charliefourth", url:"https://twitter.com/Charliefourth/status/1331038576516075521" },
+  { text:"Easily one of my favorite plays! @Castricone\u2019s call is next level! Play is great on its own but Tony\u2019s call does it for me, you can hear his excitement and intensity, I will never get tired of watching and listening.", author:"@jmjenkins13", url:"https://twitter.com/jmjenkins13/status/1294472648500502529" },
+  { text:"Replacing a legend is an impossible task and I have to say you\u2019re doing a hell of a job. Our kids are lucky to have an advocate like you.", author:"@aleonard7", url:"https://twitter.com/aleonard7/status/1108446562693320706" },
+  { text:"When it comes to play-by-play and analyst teams, they\u2019re less than a season in and the chemistry between Tony Castricone and Jason Hamilton is sensational. I\u2019m telling you, this is hard to accomplish.", author:"Jason A. Churchill", url:"https://twitter.com/ProspectInsider/status/960034065251409920" },
+  { text:"Tony, You are making your mark on Husky football. Your on air intelligence of husky football and what you bring through the airway will make you a legend. I love listening to you.. Go Dawgs\u2026..", author:"@ScottBedford17", url:"https://twitter.com/ScottBedford17/status/1178382530396876800" },
+  { text:"How do I know that @Castricone and @jasondhamilton are awesome at their job? Well, their words made me jump in my office on that #Thybulle windmill. It\u2019s as simple as that.", author:"@Edoteque", url:"https://twitter.com/Edoteque/status/1106393637347180544" },
+  { text:"Man, wish you were the voice of the tigers!", author:"@lakotadog67", url:"https://twitter.com/lakotadog67/status/1423127430756192257" }
+];
+
+var col2 = [
+  { text:"@Castricone is one of the best humans you\u2019ll ever meet. Old school @971thefan legend. Happy for him happy for the Huskies.", author:"Beau Bishop", url:"https://twitter.com/BeauBishop/status/1713393129095565617" },
+  { text:"We always mute the tv and turn on your broadcast, even if it\u2019s a play ahead. You filled some very favored shoes, Tony and brought your own passion. There\u2019s no faking that! \ud83d\udc4d\ud83c\udffb\ud83d\udc9c\ud83d\udc9b", author:"@bkhayes63", url:"https://twitter.com/bkhayes63/status/1608946426293411840" },
+  { text:"Best announcer duo in the country. We got it all!!! Love it! Love your guys passion. You are true dawgs! Thank you!", author:"@BigDawger68", url:"https://twitter.com/BigDawger68/status/1731049451488510080" },
+  { text:"Having Tony @Castricone on the call for Husky games definitely takes the sting out of Rondeau retiring. He\u2019s really good. We\u2019ve been fortunate to have fantastic play by play guys and commentators here in Seattle. I feel like @Castricone and @heygoldy are the next wave.", author:"@RichardBaze", url:"https://twitter.com/RichardBaze/status/951675016378134529" },
+  { text:"How about a Mt. Rushmore of broadcasters in the Seattle market? I\u2019d say: Niehaus, Calabro, Rondeau (Castricone is going to be a legend, though), Blackburn.", author:"@Bdoggroast", url:"https://twitter.com/Bdoggroast/status/1258216431990091776" },
+  { text:"You sir are simply amazing! The way that you\u2019ve embraced UW history and tradition is purely spectacular! Thank you!", author:"@patsking17", url:"https://twitter.com/patsking17/status/1031625669065826304" },
+  { text:"No, THANK YOU Tony. Often times the broadcasts you guys put out are better than what ESPN or any other station has. Always love the energy excitement that you guys bring. The team of @CamCleeland and @EliseMWoodward and you has been great for Huskies athletics. Have a great 2023.", author:"@GoDawgs999", url:"https://twitter.com/GoDawgs999/status/1608942383877718016" },
+  { text:"I\u2019m ngl wasn\u2019t sold on @Castricone at first to replace Bob Rondeau but now I pray he\u2019s here just as long as Bob if not longer. Both uniquely talented in their own areas but both great at the same time!", author:"@pattytrav2", url:"https://twitter.com/pattytrav2/status/1404503210967056391" },
+  { text:"@Castricone does a masterful job having candid, fun conversation. Plus, you find out early what beer he and @Coach_Hopkins like to sip, and get a summer rainstorm in the background! Must listen!", author:"@purpledawgz", url:"https://twitter.com/purpledawgz/status/1161063119512227841" },
+  { text:"Tony, is the truth. Def knows our history even more commendable considering he came from the east coast.", author:"@rivers253", url:"https://twitter.com/rivers253/status/1031819569441202176" },
+  { text:"Great job this year, Tony! Tough to replace a legend and you did it with grace and professionalism. Hope we get to hear you for many decades to come.", author:"@jhort89", url:"https://twitter.com/jhort89/status/1080314054491566080" }
+];
+
+var col3 = [
+  { text:"@Castricone is one of the most selfless people I have ever met, and he dives in 10000% to whatever he does. Hearing the emotion pour out of him in this moment is amazing. He worked so hard for an opportunity like this, and he nailed it!", author:"Brian Boesch", url:"https://twitter.com/BrianBoesch/status/1713343083402703336" },
+  { text:"You guys are the best. Please tell me you will continue to be the voice of the Huskies as we move to the Big10. Thank you for all you do. Seriously love you guys. \ud83d\udc9c\ud83d\udc9bGo Dawgs!", author:"@jewels15555", url:"https://twitter.com/jewels15555/status/1731049112689373297" },
+  { text:"We all miss Rondeau but @Castricone has done a great job. He\u2019ll be a legend before long, as well.", author:"@andrew_goodguys", url:"https://twitter.com/andrew_goodguys/status/1068936565718564864" },
+  { text:"@Castricone It can\u2019t be easy following a legend like Bob Rondeau, but I think you are doing one heck of a job in doing so. You\u2019re doing a fabulous job in representing the @UWAthletics, all while carving out your own style. Really enjoying all your work. Thank you!", author:"@FredHarlan4", url:"https://twitter.com/FredHarlan4/status/1193633249509031936" },
+  { text:"I\u2019ve been meaning to say this, was listening to the Michigan v. Army game on SiriusXM and we are truly BLESSED to have @Castricone on our call. He is so talented, that Michigan broadcast was\u2026 not good. And that is MICHIGAN.", author:"@coker_UDub", url:"https://twitter.com/coker_UDub/status/1178764041474301952" },
+  { text:"Finally catching up on PT1 and @Castricone is: Awesome on the mic, Unbelievable storyteller, Sharp & on point on SM, Incredibly humble & The best current ambassador for @UWAthletics possible.", author:"Joshua Tufts", url:"https://twitter.com/JoshuaTufts/status/1150434120423493634" },
+  { text:"You guys are awesome to listen to! You paint a vivid picture! I loved Rondeau! But, Tony brings a different energy! Which is a welcomed difference!", author:"@Hudson103Tony", url:"https://twitter.com/Hudson103Tony/status/1110038707812225029" },
+  { text:"You\u2019re amazing Tony! Miss Bob but you\u2019re special and we are lucky to have you. Go DaWgs!", author:"@udubdawgs1", url:"https://twitter.com/udubdawgs1/status/1166160299742744576" },
+  { text:"I am so glad we have you in purple & gold, Tony. Fantastic play-by-play and all class as a person. Thank you!!", author:"@joeldombrow", url:"https://twitter.com/joeldombrow/status/1492250085861646336" },
+  { text:"Feel very thankful to be able to listen to @Castricone and @heygoldy call games for my favorite teams. Two of the best doing it right now.", author:"@EbyIsland", url:"https://twitter.com/EbyIsland/status/1218659520152399872" }
+];
+
+function renderCol(entries, container) {
+  entries.forEach(function(k, i) {
+    var a = document.createElement('a');
+    a.className = 'kudos-card reveal';
+    a.href = k.url; a.target = '_blank'; a.rel = 'noopener';
+    a.style.transitionDelay = (i % 4) * 0.1 + 's';
+    a.innerHTML = '<blockquote>\u201c' + k.text + '\u201d</blockquote><div class="kudos-author">\u2014 ' + k.author + '</div><div class="kudos-hint">View original post \u2192</div>';
+    container.appendChild(a);
+  });
+}
+
+var grid = document.getElementById('kudosGrid');
+var c1 = document.createElement('div'); c1.className = 'kudos-col';
+var c2 = document.createElement('div'); c2.className = 'kudos-col';
+var c3 = document.createElement('div'); c3.className = 'kudos-col';
+renderCol(col1, c1);
+renderCol(col2, c2);
+renderCol(col3, c3);
+grid.appendChild(c1);
+grid.appendChild(c2);
+grid.appendChild(c3);
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

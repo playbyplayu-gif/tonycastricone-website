@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press — Tony Castricone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; --purple: #b4a0ff; --purple-deep: #7c5ce0; --gold: #ffd666; --bg: #0a0514; --bg2: #0d0820; --text: #fff; --text-dim: rgba(255,255,255,0.5); --text-faint: rgba(255,255,255,0.25); --card-border: rgba(180,160,255,0.08); }
+body { background: var(--bg); color: var(--text); font-family: 'Cormorant Garamond', Georgia, serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+::selection { background: rgba(180,160,255,0.3); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(180,160,255,0.15); border-radius: 3px; }
+a { color: inherit; text-decoration: none; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* PAGE HEADER */
+.page-header { padding: 5.5rem clamp(1rem,4vw,3rem) 1.5rem; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; inset: 0; background: url('images/press-podium.jpg') center 25% / cover no-repeat; opacity: 0.12; filter: grayscale(25%); }
+.page-header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,5,20,0.7), rgba(10,5,20,0.5), rgba(10,5,20,0.8)); }
+.page-header > * { position: relative; z-index: 1; }
+.page-header-inner { max-width: 1200px; margin: 0 auto; }
+.page-label { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.5rem; }
+.page-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2.5rem, 6vw, 4rem); text-transform: uppercase; line-height: 1; }
+.page-rule { width: 55px; height: 3px; background: linear-gradient(90deg, var(--purple), var(--gold)); margin-top: 1rem; border-radius: 2px; }
+.page-subtitle { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; color: var(--text-dim); margin-top: 1rem; max-width: 550px; }
+
+/* FEATURED QUOTE */
+.press-featured { max-width: 1200px; margin: 0 auto; padding: 3rem clamp(1rem,4vw,3rem); }
+.press-featured-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(180,160,255,0.1); border-radius: 12px; padding: 2.5rem 3rem; position: relative; }
+.press-featured-card::before { content: '\201C'; position: absolute; top: -0.5rem; left: 1.5rem; font-family: Georgia, serif; font-size: 6rem; color: rgba(180,160,255,0.08); line-height: 1; }
+.press-featured-text { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.65); font-style: italic; line-height: 1.7; }
+.press-featured-source { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: 1.2rem; }
+
+/* PRESS LIST */
+.press-section { max-width: 1200px; margin: 0 auto; padding: 2rem clamp(1rem,4vw,3rem) 5rem; }
+.press-year { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--text); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(180,160,255,0.08); }
+.press-year:first-child { margin-top: 0; }
+.press-item { display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem; align-items: center; padding: 1rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.03); transition: background 0.3s; }
+.press-item:hover { background: rgba(180,160,255,0.04); }
+.press-outlet { font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.press-date { font-size: 0.72rem; color: var(--text-faint); margin-top: 0.15rem; }
+.press-title { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.4; transition: color 0.3s; }
+.press-item:hover .press-title { color: var(--purple); }
+@media (max-width: 600px) { .press-item { grid-template-columns: 1fr; gap: 0.3rem; } }
+
+/* FOOTER */
+.footer { padding: 3rem clamp(1rem,4vw,3rem) 2rem; background: rgba(8,4,15,0.95); text-align: center; }
+.footer-name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+.footer-sub { font-size: 0.72rem; color: rgba(255,255,255,0.1); margin-top: 0.4rem; }
+</style>
+</head>
+<body>
+
+<div id="nav"></div>
+<script src="nav.js"></script>
+
+<header class="page-header">
+  <div class="page-header-inner" style="animation: fadeUp 0.8s ease both;">
+    <div class="page-label">Career</div>
+    <h1 class="page-title">Press</h1>
+    <div class="page-rule"></div>
+    <p class="page-subtitle">Coverage from national and regional outlets on the Voice of the Washington Huskies.</p>
+  </div>
+</header>
+
+<div class="press-featured reveal">
+  <div class="press-featured-card">
+    <p class="press-featured-text">&ldquo;Castricone lent the moment a beautiful framing: 15 minutes to a chance at 11-0, 15 minutes to reserve a berth in the Pac-12 championship game, 15 minutes to preserve ironclad national-title ambition.&rdquo;</p>
+    <div class="press-featured-source">Washington Post &mdash; November 2023</div>
+  </div>
+</div>
+
+<div class="press-section" id="pressLinks"></div>
+
+<footer class="footer">
+  <div class="footer-name">Tony Castricone</div>
+  <div class="footer-sub">Voice of the Washington Huskies &middot; PlayByPlayU &middot; &copy; 2026</div>
+</footer>
+
+<script>
+var press = [
+  { year: "2024", items: [
+    { outlet:"OHIO News", date:"Jan 4, 2024", title:"How did OHIO alumni sportscasters get to the national championship game?", url:"https://www.ohio.edu/news/2024/01/how-did-ohio-alumni-sportscasters-get-ncaa-championship-game-they-paid-their-dues" }
+  ]},
+  { year: "2023", items: [
+    { outlet:"Washington Post", date:"Nov 19, 2023", title:"Crushing at Florida State, heaving for Washington, and the radio tells all", url:"https://www.washingtonpost.com/sports/2023/11/19/florida-state-washington-college-football/" },
+    { outlet:"Seattle Times", date:"Oct 19, 2023", title:"How the 'Voice of the Huskies' prepared for an unforgettable call in UW's win over Oregon", url:"https://www.seattletimes.com/sports/uw-husky-football/how-the-voice-of-the-huskies-prepared-for-an-unforgettable-call-in-uws-win-over-oregon/" },
+    { outlet:"FanSided", date:"Oct 14, 2023", title:"Washington radio call of Oregon's missed game-tying FG is perfection", url:"https://fansided.com/posts/washington-radio-call-oregon-missed-fg-reactions" },
+    { outlet:"UW Dawg Pound", date:"Aug 29, 2023", title:"UW Dawg Pound interviews the voice of the Huskies, Tony Castricone", url:"https://www.uwdawgpound.com/2023/8/29/23838604/the-tony-castricone-interview-uw-football-edefuan-ulofoshio" },
+    { outlet:"OnMontlake.com", date:"Jun 1, 2023", title:"Luke Combs, an unreleased demo and Tony Castricone's passion for songwriting", url:"https://www.onmontlake.com/p/luke-combs-an-unreleased-demo-and" }
+  ]},
+  { year: "2019", items: [
+    { outlet:"KOMO Newsradio", date:"Aug 27, 2019", title:"SYNC IT UP: Follow the action with the Voice of the Huskies, Tony Castricone", url:"https://komonews.com/sports/huskies/sync-it-up-follow-the-action-with-the-voice-of-the-huskies-tony-castricone" }
+  ]},
+  { year: "2018", items: [
+    { outlet:"Columns Magazine", date:"Sep 2018", title:"Character: Tony Castricone, voice of the Dawgs", url:"https://magazine.washington.edu/feature/character-tony-castricone/" },
+    { outlet:"Seattle Times", date:"Aug 28, 2018", title:"Meet Bob Rondeau's UW Huskies Radio Replacement: Q&A with Tony Castricone", url:"https://www.seattletimes.com/sports/uw-husky-football/meet-bob-rondeaus-uw-huskies-radio-replacement-a-qa-with-tony-castricone/" },
+    { outlet:"The Athletic", date:"Aug 1, 2018", title:"How Tony Castricone is preparing to replace a legend in the Washington broadcast booth", url:"https://theathletic.com/453624/2018/08/01/tony-castricone-qa-washington-football-radio-broadcast/" }
+  ]},
+  { year: "2017", items: [
+    { outlet:"Seattle Times", date:"Aug 29, 2017", title:"Clemson's Tony Castricone hired to succeed Bob Rondeau as Huskies' play-by-play voice", url:"https://www.seattletimes.com/sports/uw-husky-football/clemsons-tony-castricone-hired-to-succeed-bob-rondeau-as-huskies-play-by-play-voice/" },
+    { outlet:"GoHuskies.com", date:"Aug 29, 2017", title:"Tony Castricone named 'Voice of the Huskies'", url:"https://gohuskies.com/news/2017/8/29/general-tony-castricone-named-voice-of-the-huskies.aspx" }
+  ]},
+  { year: "2014", items: [
+    { outlet:"Associated Press", date:"Sep 16, 2014", title:"Castricone new Clemson basketball voice", url:"https://www.usatoday.com/story/sports/ncaab/2014/09/16/castricone-new-clemson-basketball-voice/15715589/" }
+  ]}
+];
+
+var container = document.getElementById('pressLinks');
+press.forEach(function(group) {
+  var h = document.createElement('h2');
+  h.className = 'press-year reveal';
+  h.textContent = group.year;
+  container.appendChild(h);
+  group.items.forEach(function(p, i) {
+    var a = document.createElement('a');
+    a.className = 'press-item reveal';
+    a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+    a.style.transitionDelay = i * 0.06 + 's';
+    a.innerHTML = '<div><div class="press-outlet">' + p.outlet + '</div><div class="press-date">' + p.date + '</div></div><div class="press-title">' + p.title + '</div>';
+    container.appendChild(a);
+  });
+});
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+
+</script>
+</body>
+</html>

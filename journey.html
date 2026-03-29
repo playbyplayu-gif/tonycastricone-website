@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journey — Tony Castricone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; --purple: #b4a0ff; --purple-deep: #7c5ce0; --gold: #ffd666; --bg: #0a0514; --bg2: #0d0820; --text: #fff; --text-dim: rgba(255,255,255,0.5); --text-faint: rgba(255,255,255,0.25); }
+body { background: var(--bg); color: var(--text); font-family: 'Cormorant Garamond', Georgia, serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+::selection { background: rgba(180,160,255,0.3); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(180,160,255,0.15); border-radius: 3px; }
+a { color: inherit; text-decoration: none; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(30px); transition:opacity 0.8s cubic-bezier(.4,0,.2,1),transform 0.8s cubic-bezier(.4,0,.2,1); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.page-header { padding:5.5rem clamp(1rem,4vw,3rem) 1.5rem; position:relative; overflow:hidden; text-align:center; }
+.page-header::before { content:''; position:absolute; inset:0; background:url('images/hero.jpg') center 20%/cover no-repeat; opacity:0.15; filter:grayscale(25%); }
+.page-header::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,5,20,0.7),rgba(10,5,20,0.4),rgba(10,5,20,0.95)); }
+.page-header>*{position:relative;z-index:1}
+.page-label{font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--purple);margin-bottom:0.5rem}
+.page-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(2.5rem,6vw,4rem);text-transform:uppercase;line-height:1}
+.page-rule{width:55px;height:3px;background:linear-gradient(90deg,var(--purple),var(--gold));margin:1rem auto 0;border-radius:2px}
+.page-subtitle{font-family:'Helvetica Neue',Arial,sans-serif;font-size:1rem;color:var(--text-dim);margin-top:1rem;max-width:650px;margin-left:auto;margin-right:auto}
+.timeline{max-width:1100px;margin:0 auto;padding:2rem clamp(1rem,4vw,3rem) 4rem;position:relative}
+.timeline::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(180,160,255,0.12) 5%,rgba(180,160,255,0.12) 95%,transparent)}
+@media(max-width:800px){.timeline::before{left:2rem}}
+.tl-entry{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:5rem;position:relative}
+.tl-entry:nth-child(even){direction:rtl}
+.tl-entry:nth-child(even)>*{direction:ltr}
+@media(max-width:800px){.tl-entry,.tl-entry:nth-child(even){grid-template-columns:1fr;direction:ltr;gap:1.5rem;padding-left:3.5rem}}
+.tl-entry::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:var(--purple);border:2px solid var(--bg);box-shadow:0 0 10px rgba(180,160,255,0.3);z-index:2}
+@media(max-width:800px){.tl-entry::after{left:2rem;top:0;transform:translate(-50%,0)}}
+.tl-photo{border-radius:10px;overflow:hidden;border:1px solid rgba(180,160,255,0.08)}
+.tl-photo img{width:100%;display:block}
+.tl-date{font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.tl-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.6rem;text-transform:uppercase;line-height:1.1;margin-bottom:0.3rem}
+.tl-role{font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--purple);margin-bottom:0.8rem}
+.tl-desc{font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.92rem;color:var(--text-dim);line-height:1.65}
+.footer{padding:3rem clamp(1rem,4vw,3rem) 2rem;background:rgba(8,4,15,0.95);text-align:center}
+.footer-name{font-family:'Oswald',sans-serif;font-weight:700;font-size:0.95rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.15)}
+.footer-sub{font-size:0.72rem;color:rgba(255,255,255,0.1);margin-top:0.4rem}
+</style>
+</head>
+<body>
+<div id="nav"></div>
+<script src="nav.js"></script>
+
+<header class="page-header">
+<div style="animation:fadeUp 0.8s ease both">
+<div class="page-label">Career</div>
+<h1 class="page-title">Journey</h1>
+<div class="page-rule"></div>
+<p class="page-subtitle">23 years calling games. From a $7/hour job at a 26-watt rural AM station to the nation's 12th biggest media market and the College Football Playoff National Championship.</p>
+</div>
+</header>
+
+<div class="timeline">
+
+<!-- 1. POWER 105 -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/power105.jpg" alt="Power 105 radio, Athens, Ohio"></div>
+<div class="tl-text">
+<div class="tl-date">2003 &ndash; 2005</div>
+<div class="tl-title">Where It Started</div>
+<div class="tl-role">Power 105 &middot; Athens, Ohio</div>
+<p class="tl-desc">Seven dollars an hour, starting as a college junior. DJing top-40 radio five nights a week, delivering morning sports updates, calling high school play-by-play, and hosting a daily sports talk show &mdash; all while serving as sports editor of the daily local paper during an AP award-winning tenure.</p>
+</div>
+</div>
+
+<!-- 2. 1460 THE FAN -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/1460thefan.jpg" alt="1460 The Fan, Columbus"></div>
+<div class="tl-text">
+<div class="tl-date">2005 &ndash; 2010</div>
+<div class="tl-title">The First Big Break</div>
+<div class="tl-role">Sports Radio 1460 The Fan &middot; Columbus, Ohio</div>
+<p class="tl-desc">Pregame and postgame shows for Ohio State football and basketball covering national championship games in both sports. Filling in on talk shows alongside Chris Spielman and Kirk Herbstreit, hosting a Sunday morning sports show, and learning what it means to bring it every single day at a high-profile station in my hometown.</p>
+</div>
+</div>
+
+<!-- 3. LEAVING HOME -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/desk-shot.jpg" alt="Calling high school basketball from a student desk in Galax, VA"></div>
+<div class="tl-text">
+<div class="tl-date">2010 &ndash; 2011</div>
+<div class="tl-title">Leaving Home</div>
+<div class="tl-role">IMG College &middot; Winston-Salem, NC &amp; WWWJ Radio &middot; Galax, VA</div>
+<p class="tl-desc">A part-time job at IMG College as a seasonal producer and studio host for their Pac-10 brands &mdash; including the Washington Huskies, the first connection with Bob Rondeau. Side gigs calling Radford women&rsquo;s basketball and Galax high school football and basketball, calling the lowest division in the state from a student&rsquo;s desk with a stick mic.</p>
+</div>
+</div>
+
+<!-- 4. IMG / NOTRE DAME -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/notre-dame.jpg" alt="On the field at Notre Dame bowl game"></div>
+<div class="tl-text">
+<div class="tl-date">2011 &ndash; 2017</div>
+<div class="tl-title">Laying the Groundwork</div>
+<div class="tl-role">Network Manager &middot; IMG College &middot; Winston-Salem, NC</div>
+<p class="tl-desc">Promoted to full-time, overseeing more than a dozen Division I schools and managing the Notre Dame football radio network &mdash; over 130 stations nationwide. Hosted pregame and postgame on the national broadcast, including live from the BCS National Championship Game. Off-air responsibilities taught me everything about the business of play-by-play: affiliate recruitment, contract negotiation, budgeting, sponsor integration and more.</p>
+</div>
+</div>
+
+<!-- 5. FIRST D1 REPS -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/michigan-radio.jpg" alt="Calling Division I basketball"></div>
+<div class="tl-text">
+<div class="tl-date">2010 &ndash; 2014</div>
+<div class="tl-title">First Division I Reps</div>
+<div class="tl-role">Fill-In Play-by-Play &middot; IMG College</div>
+<p class="tl-desc">The job with IMG opened the door to Division I fill-in play-by-play across IMG&rsquo;s portfolio of properties. It started with my alma mater, Ohio University, but quickly grew to fill-in work for Michigan basketball and other Power Conference brands. It was tape from the Puerto Rico Tipoff with the Wolverines and connections made on the national call of the American Conference Tournament that led to my next freelance opportunity.</p>
+</div>
+</div>
+
+<!-- 6. CLEMSON BASKETBALL -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/clemson-uva.jpg" alt="Courtside at Clemson vs Virginia"></div>
+<div class="tl-text">
+<div class="tl-date">2014 &ndash; 2017</div>
+<div class="tl-title">Voice of Clemson Basketball</div>
+<div class="tl-role">Play-by-Play Announcer &middot; Clemson Men&rsquo;s Basketball</div>
+<p class="tl-desc">Named Clemson&rsquo;s basketball play-by-play voice in 2014 while still living in Winston-Salem &mdash; a three-and-a-half-hour drive each way to every home game. Three seasons courtside in the ACC, calling games at Duke, North Carolina, Syracuse, and Louisville, including some thrilling upsets and some heartbreaking losses during the program&rsquo;s build toward national prominence.</p>
+</div>
+</div>
+
+<!-- 7. ESPN / CLEMSON TV -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/espn.jpg" alt="ESPN reporter at Clemson"></div>
+<div class="tl-text">
+<div class="tl-date">2014 &ndash; 2017</div>
+<div class="tl-title">On Camera</div>
+<div class="tl-role">TV Host &amp; Reporter &middot; Clemson Athletics</div>
+<p class="tl-desc">The Clemson role extended well beyond radio. Hosting the Brad Brownell basketball coaches&rsquo; show on the regional Fox Sports networks throughout the Southeast, and working the sidelines for Clemson spring football games on ESPN3.</p>
+</div>
+</div>
+
+<!-- 8. VOICE OF THE HUSKIES -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/hero.jpg" alt="Tony Castricone, Voice of the Huskies"></div>
+<div class="tl-text">
+<div class="tl-date">2017 &ndash; Present</div>
+<div class="tl-title">Voice of the Huskies</div>
+<div class="tl-role">Director of Broadcasting &middot; Huskies Sports Properties</div>
+<p class="tl-desc">Named the Voice of the Washington Huskies in August 2017, succeeding legendary broadcaster Bob Rondeau. Navigated a lot of highs and lows. Basketball has gone dancing as regular season conference champs, while suffering through a 5-win season two years later. Football has seen everything from a coach&rsquo;s firing to a thrilling 21-game winning streak.</p>
+</div>
+</div>
+
+<!-- 9. THE BIGGEST STAGE -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/sugar-bowl.jpg" alt="Broadcast booth at the Sugar Bowl, Superdome"></div>
+<div class="tl-text">
+<div class="tl-date">2023 &ndash; 2024</div>
+<div class="tl-title">The Biggest Stage</div>
+<div class="tl-role">Pac-12 Championship &middot; CFP Semifinal &middot; National Championship</div>
+<p class="tl-desc">Washington&rsquo;s historic 2023 season meant calling games on the biggest stages in college football. Two epic rivalry games decided on last second field goals. A perfect regular season. A Top 5 showdown in the Conference Championship in Las Vegas. The Superdome for the Sugar Bowl. NRG Stadium for the National Championship. And a lot of lessons learned on how to handle historic moments.</p>
+</div>
+</div>
+
+<!-- 10. BEYOND THE BOOTH -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/interview-penix.jpg" alt="Interviewing Heisman runner-up Michael Penix Jr."></div>
+<div class="tl-text">
+<div class="tl-date">2017 &ndash; Present</div>
+<div class="tl-title">Beyond the Booth</div>
+<div class="tl-role">Content Creation &middot; Sponsor Integration</div>
+<p class="tl-desc">More important than simply calling games is the ability to create content that engages fans and drives revenue. Creating podcasts, conducting compelling short- and long-form interviews, and pumping out insightful social media content is crucial. Simultaneously, collaborating with sales staff and production staff helps raise brand affinity and foster corporate relationships.</p>
+</div>
+</div>
+
+<!-- 11. THE STAGE BEYOND SPORTS -->
+<div class="tl-entry reveal">
+<div class="tl-photo"><img src="images/press-podium.jpg" alt="Emceeing UW Hall of Fame ceremony"></div>
+<div class="tl-text">
+<div class="tl-date">2017 &ndash; Present</div>
+<div class="tl-title">A Trusted Voice</div>
+<div class="tl-role">Emcee &middot; Public Speaker &middot; Social Media Host &middot; Washington Athletics</div>
+<p class="tl-desc">Emceeing Husky Hall of Fame induction ceremonies, preseason pep rallies, season-ticket holder events, and athletic department banquets in front of thousands. Being a trusted source in building meaningful relationships with athletic department staff, coaches, players, donors and corporate partners.</p>
+</div>
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="footer-name">Tony Castricone</div>
+<div class="footer-sub">Voice of the Washington Huskies &middot; PlayByPlayU &middot; &copy; 2026</div>
+</footer>
+
+<script>
+var observer = new IntersectionObserver(function(entries) {
+entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+</script>
+</body>
+</html>

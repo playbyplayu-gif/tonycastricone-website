@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tony Castricone — Voice of the Washington Huskies</title>
+<meta name="description" content="Tony Castricone: Voice of the Washington Huskies, founder of PlayByPlayU, and creator of PlayByPlay AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; --purple: #b4a0ff; --purple-deep: #7c5ce0; --gold: #ffd666; --bg: #0a0514; --bg2: #0d0820; --text: #fff; --text-dim: rgba(255,255,255,0.5); --text-faint: rgba(255,255,255,0.25); --card-bg: rgba(255,255,255,0.03); --card-border: rgba(180,160,255,0.08); }
+body { background: var(--bg); color: var(--text); font-family: 'Cormorant Garamond', Georgia, serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+::selection { background: rgba(180,160,255,0.3); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(180,160,255,0.15); border-radius: 3px; }
+a { color: inherit; text-decoration: none; }
+
+/* ── ANIMATIONS ─── */
+@keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:0.25; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes scrollLine { 0%{ transform:translateY(0); opacity:0.3; } 50%{ transform:translateY(10px); opacity:1; } 100%{ transform:translateY(0); opacity:0.3; } }
+@keyframes waveform { 0%,100%{ height:4px; } 50%{ height:18px; } }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-25px); transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* nav styles loaded via nav.js */
+
+/* ── SECTION WITH BACKGROUND IMAGE (shared pattern) ─── */
+.bg-section {
+  position: relative;
+  padding: 7rem clamp(1rem, 4vw, 3rem);
+  overflow: hidden;
+}
+.bg-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  filter: grayscale(25%);
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+.bg-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,5,20,0.6) 0%, rgba(10,5,20,0.4) 50%, rgba(10,5,20,0.7) 100%);
+  z-index: 0;
+}
+.bg-section > * { position: relative; z-index: 1; }
+
+/* Per-section background images */
+.hero-section::before { background-image: url('images/hero.jpg'); background-position: center 20%; opacity: 0.25; }
+.audio-bg::before { background-image: url('images/audio-booth.jpg'); background-position: center 30%; }
+.demos-bg::before { background-image: url('images/demos-stadium.jpg'); }
+.press-bg::before { background-image: url('images/press-podium.jpg'); background-position: center 25%; opacity: 0.15; }
+.kudos-bg::before { background-image: url('images/kudos-basketball.jpg'); background-position: center 40%; }
+.viral-bg::before { background-image: url('images/viral-ucla.jpg'); background-position: center 35%; }
+.pxpu-bg::before { background-image: url('images/pxpu-podcast.jpg'); background-position: center 40%; opacity: 0.1; }
+.contact-bg::before { background-image: url('images/contact-booth.jpg'); background-position: center 30%; opacity: 0.1; }
+
+/* ── HERO ─── */
+.hero-section {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+}
+.hero-section::before { opacity: 0.28; }
+.hero-section::after {
+  background: radial-gradient(ellipse at 25% 15%, rgba(75,25,130,0.25) 0%, transparent 55%), radial-gradient(ellipse at 75% 85%, rgba(50,20,100,0.2) 0%, transparent 50%), rgba(10,5,20,0.4);
+}
+.hero-grain { position: absolute; inset: 0; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 128px; pointer-events: none; z-index: 1; }
+.hero-line { position: absolute; height: 1px; pointer-events: none; z-index: 1; }
+.hero-line-1 { top: 12%; left: 3%; width: 220px; background: linear-gradient(90deg, transparent, rgba(180,160,255,0.25), transparent); transform: rotate(-12deg); }
+.hero-line-2 { bottom: 18%; right: 5%; width: 300px; background: linear-gradient(90deg, transparent, rgba(180,160,255,0.15), transparent); transform: rotate(8deg); }
+.hero-line-3 { top: 45%; right: 2%; width: 160px; background: linear-gradient(90deg, transparent, rgba(255,214,102,0.12), transparent); transform: rotate(-20deg); }
+
+.on-air { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.8rem; animation: fadeUp 0.8s ease 0.2s both; }
+.on-air-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 14px rgba(255,59,59,0.5); animation: pulse 2s ease-in-out infinite; }
+.on-air span { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--text-dim); }
+.hero-section h1 { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: clamp(3.2rem, 13vw, 10rem); line-height: 0.88; letter-spacing: -0.02em; animation: fadeUp 1s ease 0.4s both; }
+.hero-section h1 .last { background: linear-gradient(135deg, var(--purple), var(--purple-deep), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-tagline { font-family: 'Oswald', sans-serif; font-size: clamp(0.85rem, 2.5vw, 1.25rem); font-weight: 300; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-dim); margin-top: 1.5rem; animation: fadeUp 0.8s ease 0.7s both; }
+.hero-quotes { margin-top: 1.8rem; text-align: center; width: 100%; max-width: 750px; animation: fadeUp 0.8s ease 1s both; position: relative; min-height: 110px; }
+.hero-quote { position: absolute; top: 0; left: 0; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease; cursor: pointer; pointer-events: none; }
+.hero-quote.active { opacity: 1; pointer-events: auto; }
+.hero-quote-text { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: clamp(0.85rem, 1.6vw, 1.05rem); color: rgba(255,255,255,0.55); font-style: italic; line-height: 1.7; padding: 0 1rem; font-weight: 300; }
+.hero-quote:hover .hero-quote-text { color: rgba(255,255,255,0.75); }
+.hero-quote-source { font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: 0.6rem; }
+.hero-quote-dots { display: flex; gap: 0.5rem; margin-top: 0.6rem; animation: fadeUp 0.8s ease 1.2s both; }
+.hero-quote-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); cursor: pointer; transition: background 0.3s, transform 0.3s; }
+.hero-quote-dot.active { background: var(--gold); transform: scale(1.3); }
+.scroll-cue { position: absolute; bottom: 2rem; right: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; animation: fadeUp 1s ease 1.4s both; }
+.scroll-cue span { font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 0.3em; color: var(--text-faint); text-transform: uppercase; }
+.scroll-cue-line { width: 1px; height: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent); animation: scrollLine 2.2s ease-in-out infinite; }
+
+/* ── SECTION HEADERS ─── */
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-head { margin-bottom: 3rem; }
+.section-label { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--purple); display: block; margin-bottom: 0.5rem; }
+.section-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; line-height: 1; }
+.section-rule { width: 55px; height: 3px; background: linear-gradient(90deg, var(--purple), var(--gold)); margin-top: 0.9rem; border-radius: 2px; }
+
+/* ── AUDIO ─── */
+.audio-category { margin-bottom: 4rem; }
+.audio-category:last-child { margin-bottom: 0; }
+.audio-cat-title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+.audio-cat-title::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--gold); }
+.audio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.audio-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem; transition: border-color 0.3s, background 0.3s; cursor: pointer; }
+.audio-card:hover { border-color: rgba(180,160,255,0.2); background: rgba(255,255,255,0.05); }
+.audio-play-btn { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--purple-deep)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s; }
+.audio-card:hover .audio-play-btn { transform: scale(1.08); }
+.audio-play-btn svg { width: 14px; height: 14px; fill: #fff; margin-left: 2px; }
+.audio-info { flex: 1; min-width: 0; }
+.audio-title { font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.audio-subtitle { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.15rem; }
+.audio-waveform { display: flex; align-items: center; gap: 2px; height: 20px; flex-shrink: 0; }
+.audio-waveform span { width: 2px; background: var(--purple); border-radius: 1px; opacity: 0.3; }
+
+/* ── DEMOS ─── */
+.demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+.demo-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; transition: border-color 0.3s; }
+.demo-card:hover { border-color: rgba(180,160,255,0.15); }
+.demo-embed { position: relative; padding-bottom: 56.25%; background: #000; }
+.demo-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.demo-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(75,25,130,0.25), rgba(30,15,60,0.4)); }
+.demo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+.demo-info { padding: 1.2rem 1.5rem; }
+.demo-info h3 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.demo-info p { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.3rem; }
+.demo-cta { text-align: center; margin-top: 2.5rem; }
+.demo-cta a { font-family: 'Oswald', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); padding: 0.8rem 2rem; border: 1px solid rgba(180,160,255,0.25); border-radius: 6px; display: inline-block; transition: background 0.3s, border-color 0.3s; }
+.demo-cta a:hover { background: rgba(180,160,255,0.08); border-color: var(--purple); }
+
+/* ── PRESS ─── */
+.press-list { display: flex; flex-direction: column; }
+.press-item { display: grid; grid-template-columns: 130px 1fr; gap: 1.5rem; align-items: center; padding: 1.1rem 1.4rem; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.3s; }
+.press-item:hover { background: rgba(180,160,255,0.04); }
+.press-outlet { font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.press-date { font-size: 0.72rem; color: var(--text-faint); margin-top: 0.15rem; }
+.press-title { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.4; transition: color 0.3s; }
+.press-item:hover .press-title { color: var(--purple); }
+@media (max-width: 600px) { .press-item { grid-template-columns: 1fr; gap: 0.3rem; } }
+
+/* ── KUDOS ─── */
+.kudos-grid { columns: 320px 3; column-gap: 1.5rem; }
+.kudos-card { break-inside: avoid; margin-bottom: 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 1.5rem; transition: border-color 0.3s, transform 0.3s; display: block; }
+.kudos-card:hover { border-color: rgba(180,160,255,0.18); transform: translateY(-2px); }
+.kudos-card blockquote { font-size: 0.93rem; color: rgba(255,255,255,0.65); line-height: 1.65; font-style: italic; }
+.kudos-author { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-top: 1rem; }
+.kudos-hint { font-family: 'Oswald', sans-serif; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); margin-top: 0.4rem; opacity: 0; transition: opacity 0.3s; }
+.kudos-card:hover .kudos-hint { opacity: 1; }
+.kudos-big-quote { position: absolute; top: -2rem; left: 4%; font-family: Georgia, serif; font-size: 18rem; color: rgba(180,160,255,0.03); line-height: 1; pointer-events: none; z-index: 1; }
+
+/* ── VIRAL ─── */
+.viral-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.viral-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.8rem; transition: border-color 0.3s, transform 0.3s; display: block; }
+.viral-card:hover { border-color: rgba(180,160,255,0.18); transform: translateY(-3px); }
+.viral-stat { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 2.5rem; background: linear-gradient(135deg, var(--gold), #ffb830); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+.viral-stat-label { font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.3rem; }
+.viral-desc { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-top: 1rem; line-height: 1.5; }
+.viral-people { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--purple); margin-top: 0.8rem; text-transform: uppercase; }
+.viral-view { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint); margin-top: 1rem; display: inline-block; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.2rem; transition: color 0.3s, border-color 0.3s; }
+.viral-card:hover .viral-view { color: var(--purple); border-color: var(--purple); }
+
+/* ── PXPU ─── */
+.pxpu-content { max-width: 700px; margin: 0 auto; text-align: center; }
+.pxpu-desc { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 2rem; }
+.pxpu-btn { font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; color: var(--bg); background: linear-gradient(135deg, var(--purple), var(--purple-deep)); padding: 1rem 2.5rem; border-radius: 6px; display: inline-block; transition: transform 0.3s, box-shadow 0.3s; }
+.pxpu-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,92,224,0.25); }
+.ai-teaser { max-width: 700px; margin: 3.5rem auto 0; padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,214,102,0.12); background: linear-gradient(135deg, rgba(255,214,102,0.03), rgba(180,160,255,0.03)); text-align: center; }
+.ai-teaser-label { font-family: 'Oswald', sans-serif; font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+.ai-teaser h3 { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.7rem; text-transform: uppercase; margin: 0.4rem 0; }
+.ai-teaser p { font-size: 0.92rem; color: rgba(255,255,255,0.4); }
+
+/* ── CONTACT ─── */
+.contact-form { max-width: 580px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+.contact-form input, .contact-form textarea { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; padding: 1rem 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(180,160,255,0.1); border-radius: 8px; color: var(--text); outline: none; transition: border-color 0.3s; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-faint); }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--purple); }
+.contact-form textarea { resize: vertical; min-height: 130px; }
+.contact-submit { font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; padding: 1rem 2rem; background: linear-gradient(135deg, var(--purple), var(--purple-deep)); color: var(--bg); border: none; border-radius: 8px; cursor: pointer; transition: transform 0.3s; }
+.contact-submit:hover { transform: translateY(-2px); }
+.contact-email { text-align: center; margin-top: 2.5rem; }
+.contact-email a { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--text-dim); }
+
+/* ── PREVIEW SECTIONS ─── */
+.preview { padding: 5rem clamp(1rem, 4vw, 3rem); position: relative; overflow: hidden; }
+.preview::before { content: ''; position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; filter: grayscale(25%); z-index: 0; }
+.preview::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,5,20,0.45) 0%, rgba(10,5,20,0.25) 50%, rgba(10,5,20,0.5) 100%); z-index: 0; }
+.preview > * { position: relative; z-index: 1; }
+.preview-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.preview-text { flex: 1; }
+.preview-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+.preview-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(1.5rem, 3.5vw, 2.2rem); text-transform: uppercase; line-height: 1.1; }
+.preview-desc { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.9rem; color: var(--text-dim); margin-top: 0.6rem; line-height: 1.5; max-width: 500px; }
+.preview-link { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: inline-block; margin-top: 1.2rem; padding-bottom: 0.2rem; border-bottom: 1px solid rgba(180,160,255,0.25); transition: border-color 0.3s, color 0.3s; }
+.preview-link:hover { color: #fff; border-color: #fff; }
+.preview-samples::before { background-image: url('images/audio-booth.jpg'); background-position: center 30%; }
+.preview-press::before { background-image: url('images/press-podium.jpg'); background-position: center 25%; }
+.preview-pxpu::before { background-image: url('images/pxpu-podcast.jpg'); background-position: center 40%; }
+.preview-viral::before { background-image: url('images/viral-ucla.jpg'); background-position: center 55%; }
+.preview-kudos::before { background-image: url('images/kudos-basketball.jpg'); background-position: center 40%; }
+.preview-ai::before { background: none; opacity: 0; }
+.press-logos { display: flex; align-items: center; gap: 1.8rem; flex-wrap: wrap; margin-top: 1rem; }
+.press-logos a { display: inline-block; line-height: 0; }
+.press-logos img { height: 22px; opacity: 0.5; filter: brightness(0) invert(1); transition: opacity 0.3s; }
+.press-logos a:hover img { opacity: 0.9; }
+@media (max-width: 600px) { .preview-inner { flex-direction: column; text-align: center; } .preview-desc { max-width: none; } }
+
+/* ── FOOTER ─── */
+.footer { padding: 3rem clamp(1rem,4vw,3rem) 2rem; background: rgba(8,4,15,0.95); text-align: center; position: relative; z-index: 1; }
+.footer-name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+.footer-sub { font-size: 0.72rem; color: rgba(255,255,255,0.1); margin-top: 0.4rem; }
+</style>
+</head>
+<body>
+
+<div id="nav"></div>
+<script src="nav.js"></script>
+
+<!-- HERO -->
+<section class="bg-section hero-section">
+  <div class="hero-grain"></div>
+  <div class="hero-line hero-line-1"></div>
+  <div class="hero-line hero-line-2"></div>
+  <div class="hero-line hero-line-3"></div>
+  <div class="on-air"><div class="on-air-dot"></div><span style="font-family:'Oswald',sans-serif;">On Air</span></div>
+  <h1>Tony<br><span class="last">Castricone</span></h1>
+  <p class="hero-tagline">Voice of the Washington Huskies</p>
+  <div class="hero-quotes" id="heroQuotes">
+    <a class="hero-quote active" href="https://www.washingtonpost.com/sports/2023/11/19/florida-state-washington-college-football/" target="_blank">
+      <div class="hero-quote-text">&ldquo;Castricone lent the moment a beautiful framing: 15 minutes to a chance at 11-0, 15 minutes to reserve a berth in the Pac-12 championship game, 15 minutes to preserve ironclad national-title ambition.&rdquo;</div>
+      <div class="hero-quote-source">Washington Post</div>
+    </a>
+    <a class="hero-quote" href="https://fansided.com/posts/washington-radio-call-oregon-missed-fg-reactions" target="_blank">
+      <div class="hero-quote-text">&ldquo;Washington radio call of Oregon&rsquo;s missed game-tying FG is perfection.&rdquo;</div>
+      <div class="hero-quote-source">FanSided</div>
+    </a>
+    <a class="hero-quote" href="https://twitter.com/ProspectInsider/status/960034077813309440" target="_blank">
+      <div class="hero-quote-text">&ldquo;I strongly urge all of you Dawgs fans: When you aren&rsquo;t AT the games, find a way &mdash; FIND A FREAKING WAY &mdash; to mute the TV and listen to Castricone and Hamilton.&rdquo;</div>
+      <div class="hero-quote-source">Jason A. Churchill</div>
+    </a>
+    <a class="hero-quote" href="https://www.seattletimes.com/sports/uw-husky-football/how-the-voice-of-the-huskies-prepared-for-an-unforgettable-call-in-uws-win-over-oregon/" target="_blank">
+      <div class="hero-quote-text">&ldquo;How the Voice of the Huskies prepared for an unforgettable call in UW&rsquo;s win over Oregon.&rdquo;</div>
+      <div class="hero-quote-source">Seattle Times</div>
+    </a>
+  </div>
+  <div class="hero-quote-dots" id="quoteDots">
+    <div class="hero-quote-dot active" data-index="0"></div>
+    <div class="hero-quote-dot" data-index="1"></div>
+    <div class="hero-quote-dot" data-index="2"></div>
+    <div class="hero-quote-dot" data-index="3"></div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-cue-line"></div></div>
+</section>
+
+<!-- PREVIEW: PRESS -->
+<section class="preview preview-press reveal">
+  <div class="preview-inner">
+    <div class="preview-text">
+      <div class="preview-label">Career</div>
+      <h2 class="preview-title">In the News</h2>
+      <p class="preview-desc">Featured in the Washington Post, Seattle Times, The Athletic, and more.</p>
+      <div class="press-logos">
+        <a href="https://www.washingtonpost.com/sports/2023/11/19/florida-state-washington-college-football/" target="_blank" rel="noopener"><img src="images/logo-washingtonpost-final.png" alt="Washington Post"></a>
+        <a href="https://www.seattletimes.com/sports/uw-husky-football/how-the-voice-of-the-huskies-prepared-for-an-unforgettable-call-in-uws-win-over-oregon/" target="_blank" rel="noopener"><img src="images/logo-seattletimes-final.png" alt="Seattle Times"></a>
+        <a href="https://theathletic.com/453624/2018/08/01/tony-castricone-qa-washington-football-radio-broadcast/" target="_blank" rel="noopener"><img src="images/logo-theAthletic-final.png" alt="The Athletic"></a>
+        <a href="https://fansided.com/posts/washington-radio-call-oregon-missed-fg-reactions" target="_blank" rel="noopener"><img src="images/logo-fansided-final.png" alt="FanSided"></a>
+        <a href="https://www.usatoday.com/story/sports/ncaab/2014/09/16/castricone-new-clemson-basketball-voice/15715589/" target="_blank" rel="noopener"><img src="images/logo-ap-final.png" alt="Associated Press"></a>
+      </div>
+      <a class="preview-link" href="press.html">Read Press Coverage &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW: KUDOS -->
+<section class="preview preview-kudos reveal">
+  <div class="preview-inner">
+    <div class="preview-text">
+      <div class="preview-label">Career</div>
+      <h2 class="preview-title">Kudos</h2>
+      <p class="preview-desc">What fans, peers, and the media are saying about the Voice of the Huskies.</p>
+      <a class="preview-link" href="kudos.html">Read What They're Saying &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW: PXPU -->
+<section class="preview preview-pxpu reveal">
+  <div class="preview-inner">
+    <div class="preview-text">
+      <div class="preview-label">Products</div>
+      <h2 class="preview-title">Play-by-Play U</h2>
+      <p class="preview-desc">Coaching, insights, and real-world advice to make your dream job in play-by-play broadcasting come true, from people doing it at the highest level.</p>
+      <a class="preview-link" href="https://playbyplayu.com" target="_blank">Learn More &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYBYPLAY AI COMING SOON -->
+<section class="preview preview-ai reveal" id="playbyplayai">
+  <div class="preview-inner">
+    <div class="preview-text">
+      <div class="preview-label" style="color:var(--gold);">Coming Soon</div>
+      <h2 class="preview-title">PlayByPlay AI</h2>
+      <p class="preview-desc">The smartest way to call a game. The future of play-by-play prep and in-game analysis. Stay tuned.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW: VIRAL -->
+<section class="preview preview-viral reveal">
+  <div class="preview-inner">
+    <div class="preview-text">
+      <div class="preview-label">Misc</div>
+      <h2 class="preview-title">Social Reel</h2>
+      <p class="preview-desc">Finding the angle no one else sees &mdash; on air and online.</p>
+      <a class="preview-link" href="viral.html">See the Posts &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-name">Tony Castricone</div>
+  <div class="footer-sub">Voice of the Washington Huskies &middot; PlayByPlayU &middot; &copy; 2026</div>
+</footer>
+
+<script>
+// Quote carousel rotation
+var quotes = document.querySelectorAll('.hero-quote');
+var dots = document.querySelectorAll('.hero-quote-dot');
+var currentQuote = 0;
+var quoteInterval;
+
+function showQuote(index) {
+  quotes.forEach(function(q) { q.classList.remove('active'); });
+  dots.forEach(function(d) { d.classList.remove('active'); });
+  quotes[index].classList.add('active');
+  dots[index].classList.add('active');
+  currentQuote = index;
+}
+
+function nextQuote() {
+  showQuote((currentQuote + 1) % quotes.length);
+}
+
+function startRotation() {
+  quoteInterval = setInterval(nextQuote, 7000);
+}
+
+dots.forEach(function(dot) {
+  dot.addEventListener('click', function() {
+    clearInterval(quoteInterval);
+    showQuote(parseInt(this.getAttribute('data-index')));
+    startRotation();
+  });
+});
+
+startRotation();
+
+// Scroll reveal
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>
