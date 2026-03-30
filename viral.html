@@ -29,27 +29,15 @@ a { color: inherit; text-decoration: none; }
 .page-rule { width: 45px; height: 3px; background: linear-gradient(90deg, var(--purple), var(--gold)); margin-top: 0.7rem; border-radius: 2px; }
 .page-subtitle { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.85rem; color: var(--text-dim); margin-top: 0.6rem; max-width: 600px; }
 
-/* TOP 5 GRID — explicit 3-column placement */
+/* TOP 7 GRID — explicit 3-column placement */
 .viral-top5 { max-width: 1200px; margin: 0 auto; padding: 1.2rem clamp(1rem,4vw,3rem) 0.5rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: start; }
 .viral-top5-col { display: flex; flex-direction: column; gap: 1rem; }
 @media (max-width: 700px) { .viral-top5 { grid-template-columns: 1fr; } }
 
-/* REMAINING POSTS MASONRY */
+/* MORE POSTS — masonry */
 .viral-grid { max-width: 1200px; margin: 0 auto; padding: 1rem clamp(1rem,4vw,3rem) 2rem; columns: 300px 3; column-gap: 1rem; }
 .viral-grid .tweet-wrap { break-inside: avoid; margin-bottom: 1rem; }
 @media (max-width: 500px) { .viral-grid { columns: 1; } }
-
-/* OTHERS GRID */
-.viral-others { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,3rem) 2rem; columns: 300px 3; column-gap: 1rem; }
-.viral-others .tweet-wrap { break-inside: avoid; margin-bottom: 1rem; }
-@media (max-width: 500px) { .viral-others { columns: 1; } }
-
-/* Override Twitter embed backgrounds for dark theme */
-.twitter-tweet { margin: 0 !important; }
-
-/* MY POSTS GRID (small set) */
-.viral-mine { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,3rem) 1rem; columns: 300px 3; column-gap: 1rem; }
-.viral-mine .tweet-wrap { break-inside: avoid; margin-bottom: 1rem; }
 
 /* SECTION DIVIDER WITH LABEL */
 .viral-divider { max-width: 1200px; margin: 0 auto; padding: 2rem clamp(1rem,4vw,3rem) 1.2rem; }
@@ -57,20 +45,8 @@ a { color: inherit; text-decoration: none; }
 .viral-divider-label { font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
 .viral-divider-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.4rem; text-transform: uppercase; }
 
-/* OTHERS ABOUT ME GRID */
-.viral-others { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,3rem) 2rem; columns: 300px 3; column-gap: 1rem; }
-.viral-others .tweet-wrap { break-inside: avoid; margin-bottom: 1rem; }
-@media (max-width: 500px) { .viral-mine, .viral-others { columns: 1; } }
-
-/* FACEBOOK SECTION */
-.fb-section { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,3rem) 2rem; }
-.fb-section-head { padding: 2rem 0 1.5rem; border-top: 1px solid rgba(180,160,255,0.08); }
-.fb-section-label { font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
-.fb-section-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.5rem; text-transform: uppercase; }
-.fb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; padding-bottom: 3rem; }
-.fb-video-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; overflow: hidden; }
-.fb-video-wrap iframe { width: 100%; min-height: 400px; border: none; display: block; }
-@media (max-width: 500px) { .fb-grid { grid-template-columns: 1fr; } }
+/* Override Twitter embed backgrounds for dark theme */
+.twitter-tweet { margin: 0 !important; }
 
 /* FOOTER */
 .footer { padding: 3rem clamp(1rem,4vw,3rem) 2rem; background: rgba(8,4,15,0.95); text-align: center; }
@@ -93,7 +69,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </header>
 
-<!-- TOP POSTS — explicitly placed across 3 columns -->
+<!-- TOP POSTS — explicitly placed across 3 columns (unchanged) -->
 <div class="viral-top5">
   <div class="viral-top5-col">
     <div class="tweet-wrap" data-tweet-id="2013458117137494190"></div>
@@ -110,14 +86,16 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
-<!-- WHAT OTHERS ARE SAYING -->
-<div class="fb-section">
-  <div class="fb-section-head">
-    <div class="fb-section-label">From Others</div>
-    <h2 class="fb-section-title">What People Are Saying</h2>
+<!-- MORE POSTS — divider -->
+<div class="viral-divider">
+  <div class="viral-divider-head">
+    <div class="viral-divider-label">More</div>
+    <h2 class="viral-divider-title">More Posts</h2>
   </div>
 </div>
-<div class="viral-others" id="othersPosts"></div>
+
+<!-- MORE POSTS — masonry grid -->
+<div class="viral-grid" id="morePosts"></div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -127,20 +105,47 @@ a { color: inherit; text-decoration: none; }
 
 <!-- Twitter/X embed script -->
 <script>
-// Posts from others
-var othersTweetIds = [
-  '1713335725242917209',
-  '1728809804632924542',
-  '1715139732710338618'
+// Additional posts (30 new tweets)
+var moreTweetIds = [
+  '1731400146607649190',
+  '1869865982577259000',
+  '1732144530424770567',
+  '1746411762537374092',
+  '1744823722685456864',
+  '1747726049767759910',
+  '1726169127457529996',
+  '1783666087160426678',
+  '1731227389567611342',
+  '1733402916525052059',
+  '1730859756498416048',
+  '1080312541492871169',
+  '1107407835158110208',
+  '1492243242649145351',
+  '1596803713460367360',
+  '1104182669523345408',
+  '1080680720182333442',
+  '1327105159504089088',
+  '1100460295791595520',
+  '1712897815377334414',
+  '1710869683916927307',
+  '1726118839392592183',
+  '1713371089156657421',
+  '1726110191098437806',
+  '1728092777123316106',
+  '1731035418886586655',
+  '1744632550918681057',
+  '1730084905064013837',
+  '1733657995773628424',
+  '1742258064105820238'
 ];
 
-// Populate others grid
-var othersGrid = document.getElementById('othersPosts');
-othersTweetIds.forEach(function(id) {
+// Populate more posts grid
+var moreGrid = document.getElementById('morePosts');
+moreTweetIds.forEach(function(id) {
   var wrap = document.createElement('div');
   wrap.className = 'tweet-wrap';
   wrap.setAttribute('data-tweet-id', id);
-  othersGrid.appendChild(wrap);
+  moreGrid.appendChild(wrap);
 });
 
 // Load Twitter widgets.js and render all tweets
