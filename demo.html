@@ -85,6 +85,11 @@ a { color: inherit; text-decoration: none; }
 .section-divider { max-width: 960px; margin: 0 auto; padding: 0 clamp(1rem,4vw,3rem); }
 .section-divider-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(180,160,255,0.12), transparent); }
 
+/* VIDEO PLAYER DROPDOWN (for YouTube embeds) */
+.video-player-dropdown { display: none; margin-top: 0.75rem; padding: 1rem; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 10px; }
+.video-player-dropdown.active { display: block; }
+.video-player-dropdown .video-wrapper { margin: 0; }
+
 /* CTA */
 .demo-cta { max-width: 960px; margin: 0 auto; padding: 3rem clamp(1rem,4vw,3rem) 5rem; text-align: center; }
 .demo-cta-text { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.95rem; color: var(--text-dim); margin-bottom: 1.5rem; }
@@ -117,12 +122,12 @@ a { color: inherit; text-decoration: none; }
 
 <div class="section-divider"><div class="section-divider-line"></div></div>
 
-<!-- FOOTBALL AUDIO -->
+<!-- RECENT FOOTBALL AUDIO -->
 <div class="audio-section reveal">
   <div class="audio-section-head">
     <div style="font-size:2rem; line-height:1; flex-shrink:0;">&#127944;</div>
     <div>
-      <div class="audio-section-title">Football</div>
+      <div class="audio-section-title">Recent Football</div>
     </div>
   </div>
   <div class="audio-card" data-src="2025-09-27_uw_ohiost1stH.MP3">
@@ -135,21 +140,16 @@ a { color: inherit; text-decoration: none; }
     <div class="audio-info"><div class="audio-title">Washington at Michigan &mdash; 1st Half</div><div class="audio-subtitle">Ann Arbor, Mich. &middot; Michigan Stadium &middot; Oct 18, 2025</div></div>
     <div class="audio-waveform"></div>
   </div>
-  <div class="audio-card" data-src="240108_seg1.mp3">
-    <div class="audio-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
-    <div class="audio-info"><div class="audio-title">#2 Washington vs. #1 Michigan &mdash; 2nd Quarter</div><div class="audio-subtitle">Houston, Texas &middot; NRG Stadium &middot; Jan 8, 2024</div></div>
-    <img src="images/cfp_logo.png" alt="College Football Playoff" class="audio-event-logo">
-  </div>
 </div>
 
 <div class="section-divider"><div class="section-divider-line"></div></div>
 
-<!-- BASKETBALL AUDIO -->
+<!-- RECENT BASKETBALL AUDIO -->
 <div class="audio-section reveal">
   <div class="audio-section-head">
     <div style="font-size:2rem; line-height:1; flex-shrink:0;">&#127936;</div>
     <div>
-      <div class="audio-section-title">Basketball</div>
+      <div class="audio-section-title">Recent Basketball</div>
     </div>
   </div>
   <div class="audio-card" data-src="260312_washington_wisconsin2ndH.mp3">
@@ -161,6 +161,38 @@ a { color: inherit; text-decoration: none; }
     <div class="audio-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
     <div class="audio-info"><div class="audio-title">Washington at #18 Washington State &mdash; Full Game</div><div class="audio-subtitle">Pullman, Wash. &middot; Beasley Coliseum &middot; March 7, 2024</div></div>
     <div class="audio-waveform"></div>
+  </div>
+</div>
+
+<div class="section-divider"><div class="section-divider-line"></div></div>
+
+<!-- ON THE BIGGEST STAGE -->
+<div class="audio-section reveal">
+  <div class="audio-section-head">
+    <div style="font-size:2rem; line-height:1; flex-shrink:0;">&#127942;</div>
+    <div>
+      <div class="audio-section-title">On The Biggest Stage</div>
+    </div>
+  </div>
+  <div class="audio-card" data-src="240108_seg1.mp3">
+    <div class="audio-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+    <div class="audio-info"><div class="audio-title">#2 Washington vs. #1 Michigan &mdash; 2nd Quarter</div><div class="audio-subtitle">Houston, Texas &middot; NRG Stadium &middot; Jan 8, 2024</div></div>
+    <img src="images/cfp_logo.png" alt="College Football Playoff" class="audio-event-logo">
+  </div>
+  <div class="audio-card" data-video="https://www.youtube.com/embed/Vp38H_2mP8w">
+    <div class="audio-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+    <div class="audio-info"><div class="audio-title">#2 Washington vs. #3 Texas &mdash; 4th Quarter</div><div class="audio-subtitle">New Orleans, La. &middot; Caesar&rsquo;s Superdome &middot; Jan 1, 2024</div></div>
+    <img src="images/sugar_bowl.png" alt="Sugar Bowl" class="audio-event-logo">
+  </div>
+  <div class="audio-card" data-video="https://www.youtube.com/embed/bKUX1cssneI">
+    <div class="audio-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+    <div class="audio-info"><div class="audio-title">(9) Washington vs. (8) Utah State &mdash; 1st Half</div><div class="audio-subtitle">Columbus, Ohio &middot; Nationwide Arena &middot; March 22, 2019</div></div>
+    <img src="images/march_madness.png" alt="NCAA March Madness" class="audio-event-logo">
+  </div>
+  <div class="audio-card" data-video="https://www.youtube.com/embed/AacCQipwZn8">
+    <div class="audio-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+    <div class="audio-info"><div class="audio-title">#9 Washington vs. #6 Ohio State &mdash; 1st Quarter</div><div class="audio-subtitle">Pasadena, Calif. &middot; Rose Bowl &middot; Jan 1, 2019</div></div>
+    <img src="images/rose_bowl.png" alt="Rose Bowl" class="audio-event-logo">
   </div>
 </div>
 
@@ -219,6 +251,14 @@ document.querySelectorAll('.audio-card[data-src]').forEach(function(card) {
     if (currentPlayerEl) { currentPlayerEl.remove(); }
     if (currentCardEl) {
       currentCardEl.querySelector('.audio-play-btn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
+    }
+
+    // Close any open video dropdown
+    if (currentVideoDropdown) {
+      currentVideoDropdown.remove();
+      currentVideoCard.querySelector('.audio-play-btn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
+      currentVideoDropdown = null;
+      currentVideoCard = null;
     }
 
     // Create new player
@@ -310,6 +350,51 @@ document.querySelectorAll('.audio-card[data-src]').forEach(function(card) {
       progressFill.style.width = '0%';
       currentTimeEl.textContent = '0:00';
     });
+  });
+});
+
+// Video card click handler (YouTube embeds)
+var currentVideoDropdown = null;
+var currentVideoCard = null;
+
+document.querySelectorAll('.audio-card[data-video]').forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    var videoUrl = this.getAttribute('data-video');
+
+    // If clicking the same card that's already open, close it
+    if (currentVideoCard === this && currentVideoDropdown) {
+      currentVideoDropdown.remove();
+      currentVideoDropdown = null;
+      currentVideoCard.querySelector('.audio-play-btn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
+      currentVideoCard = null;
+      return;
+    }
+
+    // Close any existing video dropdown
+    if (currentVideoDropdown) {
+      currentVideoDropdown.remove();
+      currentVideoCard.querySelector('.audio-play-btn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
+    }
+
+    // Close any existing audio player too
+    if (currentAudio) { currentAudio.pause(); clearInterval(progressInterval); }
+    if (currentPlayerEl) { currentPlayerEl.remove(); currentPlayerEl = null; }
+    if (currentCardEl) {
+      currentCardEl.querySelector('.audio-play-btn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
+      currentCardEl = null;
+    }
+
+    // Create video dropdown
+    var dropdown = document.createElement('div');
+    dropdown.className = 'video-player-dropdown active';
+    dropdown.innerHTML = '<div class="video-wrapper"><iframe src="' + videoUrl + '?autoplay=1" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>';
+    dropdown.addEventListener('click', function(ev) { ev.stopPropagation(); });
+    this.after(dropdown);
+    currentVideoDropdown = dropdown;
+    currentVideoCard = this;
+
+    // Update card icon to indicate open
+    this.querySelector('.audio-play-btn').innerHTML = '<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" fill="white"/><rect x="14" y="4" width="4" height="16" fill="white"/></svg>';
   });
 });
 
