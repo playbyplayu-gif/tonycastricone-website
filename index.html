@@ -206,7 +206,11 @@ a { color: inherit; text-decoration: none; }
 .preview-link { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: inline-block; margin-top: 1.2rem; padding-bottom: 0.2rem; border-bottom: 1px solid rgba(180,160,255,0.25); transition: border-color 0.3s, color 0.3s; }
 .preview-link:hover { color: #fff; border-color: #fff; }
 .preview-samples::before { background-image: url('images/audio-booth.jpg'); background-position: center 30%; }
+.preview-listen::before { background-image: url('images/2024cfp.jpg'); background-position: center 45%; }
 .preview-press::before { background-image: url('images/press-podium.jpg'); background-position: center 25%; }
+.event-logos { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
+.event-logos img { height: 28px; filter: brightness(0) invert(1); opacity: 0.4; transition: opacity 0.3s; }
+.event-logos img:hover { opacity: 0.9; }
 .preview-pxpu::before { background-image: url('images/pxpu-podcast.jpg'); background-position: center 40%; }
 .preview-viral::before { background-image: url('images/viral-ucla.jpg'); background-position: center 55%; }
 .preview-kudos::before { background-image: url('images/kudos-basketball.jpg'); background-position: center 40%; }
@@ -236,7 +240,7 @@ a { color: inherit; text-decoration: none; }
   <div class="hero-line hero-line-3"></div>
   <div class="on-air"><div class="on-air-dot"></div><span style="font-family:'Oswald',sans-serif;">On Air</span></div>
   <h1>Tony<br><span class="last">Castricone</span></h1>
-  <p class="hero-tagline">Voice of the Washington Huskies</p>
+  <p class="hero-tagline">Sportscaster &middot; Career Coach &middot; Motivational Speaker</p>
   <div class="hero-quotes" id="heroQuotes">
     <a class="hero-quote active" href="https://www.washingtonpost.com/sports/2023/11/19/florida-state-washington-college-football/" target="_blank">
       <div class="hero-quote-text">&ldquo;Castricone lent the moment a beautiful framing: 15 minutes to a chance at 11-0, 15 minutes to reserve a berth in the Pac-12 championship game, 15 minutes to preserve ironclad national-title ambition.&rdquo;</div>
@@ -262,6 +266,25 @@ a { color: inherit; text-decoration: none; }
     <div class="hero-quote-dot" data-index="3"></div>
   </div>
   <div class="scroll-cue"><span>Scroll</span><div class="scroll-cue-line"></div></div>
+</section>
+
+<!-- PREVIEW: LISTEN HERE -->
+<section class="preview preview-listen reveal">
+  <div class="preview-inner">
+    <div class="preview-text">
+      <div class="preview-label">Career</div>
+      <h2 class="preview-title">Listen Here</h2>
+      <p class="preview-desc">Samples of calls from recent games and major events.</p>
+      <div class="event-logos">
+        <img src="images/2026_big10tournament.png" alt="Big Ten Tournament">
+        <img src="images/cfp_logo.png" alt="College Football Playoff">
+        <img src="images/sugar_bowl.png" alt="Sugar Bowl">
+        <img src="images/march_madness.png" alt="NCAA March Madness">
+        <img src="images/rose_bowl.png" alt="Rose Bowl">
+      </div>
+      <a class="preview-link" href="demo.html">Click to Listen &rarr;</a>
+    </div>
+  </div>
 </section>
 
 <!-- PREVIEW: PRESS -->
